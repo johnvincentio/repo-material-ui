@@ -9,6 +9,7 @@ import App from '../components/1/App';
 
 import NotFoundPage from '../components/NotFoundPage';
 import App2 from '../components/2/App2';
+import App3 from '../components/3/App3';
 
 const Root = ({ store }) => (
 	<Provider store={store}>
@@ -18,6 +19,7 @@ const Root = ({ store }) => (
 			<Switch>
 				<Route path="/1" component={App} />
 				<Route path="/2" component={App2} />
+				<Route path="/3" component={App3} />
 				<Route component={NotFoundPage} />
 			</Switch>
 			{/* <div className="devtools">
