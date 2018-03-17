@@ -5,11 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 
 // import DevTools from './DevTools';
 
-import App from '../components/1/App';
-
-import NotFoundPage from '../components/NotFoundPage';
-import App2 from '../components/2/App2';
-import App3 from '../components/3/App3';
+import App from '../components/App';
 
 const Root = ({ store }) => (
 	<Provider store={store}>
@@ -17,10 +13,7 @@ const Root = ({ store }) => (
 			{' '}
 			{/* comment */}
 			<Switch>
-				<Route path="/1" component={App} />
-				<Route path="/2" component={App2} />
-				<Route path="/3" component={App3} />
-				<Route component={NotFoundPage} />
+				<Route path="/" component={App} />
 			</Switch>
 			{/* <div className="devtools">
 				<DevTools />
