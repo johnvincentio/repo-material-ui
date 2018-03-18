@@ -2,14 +2,55 @@ import React, { Fragment } from 'react';
 
 import { Header, Footer } from './layouts';
 import Exercises from './exercises';
+import { muscles, exercises } from './store';
 
-export default class extends React.Component {
+export default class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { exercises, exercise: {}, category: '' };
+		this.handleCategorySelected = this.handleCategorySelected.bind(this);
+		this.handleExerciseSelected = this.handleExerciseSelected.bind(this);
+	}
+
+	getExercisesByMuscles() {
+		return Object.entries(
+			this.state.exercises.reduce((exercises, exercise) => {
+				const { muscles } = exercise;
+				exercises[muscles] = exercises[muscles] ? [...exercises[muscles], exercise] : [exercise];
+				return exercises;
+			}, {})
+		);
+	}
+
+	handleCategorySelected(type) {
+		console.log('handleCategorySelected; type ', type);
+		this.setState({
+			category: type
+		});
+	}
+
+	handleExerciseSelected(id) {
+		this.setState(({ exercises }) => ({
+			exercise: exercises.find(ex => ex.id === id)
+		}));
+	}
+
 	render() {
+		const exercises = this.getExercisesByMuscles();
+		const { category, exercise } = this.state;
+
 		return (
 			<Fragment>
 				<Header />
-				<Exercises />
-				<Footer />
+
+				<Exercises
+					exercise={exercise}
+					category={category}
+					exercises={exercises}
+					onSelect={this.handleExerciseSelected}
+				/>
+
+				<Footer category={category} muscles={muscles} onSelect={this.handleCategorySelected} />
 			</Fragment>
 		);
 	}
