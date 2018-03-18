@@ -5,7 +5,8 @@ import { Switch, Route } from 'react-router-dom';
 
 // import DevTools from './DevTools';
 
-import App from '../components/App';
+import Main from './Main';
+// import App from '../components/App';
 
 const Root = ({ store }) => (
 	<Provider store={store}>
@@ -13,7 +14,7 @@ const Root = ({ store }) => (
 			{' '}
 			{/* comment */}
 			<Switch>
-				<Route path="/" component={App} />
+				<Route path="/" component={Main} />
 			</Switch>
 			{/* <div className="devtools">
 				<DevTools />
