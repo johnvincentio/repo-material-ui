@@ -2,7 +2,9 @@ import React from 'react';
 import { cyan500 } from 'material-ui/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { createMuiTheme } from 'material-ui/styles';
-import AppBar from 'material-ui/AppBar';
+// import AppBar from 'material-ui/AppBar';
+
+import App from '../components/App';
 
 const theme = createMuiTheme({
 	palette: {
@@ -26,8 +28,27 @@ console.log('theme ', theme);
 // MuiThemeProvider takes the theme as a property and passed it down the hierarchy.
 const Main = () => (
 	<MuiThemeProvider theme={theme}>
-		<AppBar color="secondary">My AppBar</AppBar>
+		<App />
+		{/* <AppBar color="secondary">My AppBar</AppBar> */}
 	</MuiThemeProvider>
 );
 
 export default Main;
+
+/*
+const muiTheme = {
+  palette: {
+    textColor: colors.grey200,
+    primary1Color: '#ffce00',
+    accent1Color: colors.redA200,
+    accent2Color: colors.redA400,
+    accent3Color: colors.redA100,
+  },
+  table: {
+    height: 'calc(100vh - 122px)'
+  },
+  tableHeaderColumn: {
+    fontSize: '14px'
+  }
+};
+*/
