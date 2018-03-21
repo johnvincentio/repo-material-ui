@@ -71,7 +71,6 @@ export default class extends Component {
 		return (
 			<Fragment>
 				<Header muscles={muscles} onExerciseCreate={this.handleExerciseCreate} />
-
 				<Exercises
 					exercise={exercise}
 					category={category}

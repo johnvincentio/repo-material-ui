@@ -1,0 +1,26 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Run webpack",
+			"program": "${workspaceRoot}/node_modules/.bin/webpack",
+			"cwd": "${workspaceRoot}/",
+			"args": [
+				"--config",
+				"${workspaceRoot}/webpack.config.js",
+				"--context",
+				"${workspaceRoot}",
+				"--output-path",
+				"${workspaceRoot}/dist"
+			]
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Launch Program",
+			"program": "${file}"
+		}
+	]
+}
