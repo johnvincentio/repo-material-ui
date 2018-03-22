@@ -15,20 +15,22 @@ export default withStyles(styles)(
 	class extends Component {
 		state = this.getInitState();
 
-		getInitState() {
-			const { exercise } = this.props;
-
-			return exercise || {
-				title: '',
-				description: '',
-				muscles: ''
-				  };
-		}
-
 		componentWillReceiveProps({ exercise }) {
 			this.setState({
 				...exercise
 			});
+		}
+
+		getInitState() {
+			const { exercise } = this.props;
+
+			return (
+				exercise || {
+					title: '',
+					description: '',
+					muscles: ''
+				}
+			);
 		}
 
 		handleChange = name => ({ target: { value } }) =>
